@@ -2,6 +2,20 @@
 set -x
 set -eo pipefail
 
+# Check that both psql and sqlx-cli are installed
+if ! [ -x "$(command -v psql)" ]; then
+  echo "Error: psql is not installed."
+  exit 1
+fi
+
+if ! [ -x "$(command -v sqlx)" ]; then
+  echo "Error: sqlx is not installed."
+  echo >&2 "Use:"
+  echo >&2 "    cargo install --version=\"0.8.0\" sqlx-cli --no-default-features --features rustls,postgres"
+  echo >&2 " to install it."
+  exit 1
+fi
+
 # Check if a custom user has been set, otherwise default to 'postgres'
 DB_USER=${POSTGRES_USER:=postgres}
 # Check if a custom password has been set, otherwise default to 'password'
