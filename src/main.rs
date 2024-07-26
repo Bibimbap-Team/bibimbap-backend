@@ -19,7 +19,7 @@ mod test {
     use std::io::Read;
 
     #[test]
-    fn test_hello() {
+    fn health_check_works() {
         let client = Client::tracked(rocket()).expect("Failed to create client");
         let response = client.get(uri!(super::health_check)).dispatch();
 
