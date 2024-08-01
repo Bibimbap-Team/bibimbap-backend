@@ -23,7 +23,7 @@ DB_PORT="${POSTGRES_PORT:=5432}"
 DB_HOST="${POSTGRES_HOST:=localhost}"
 
 # Launch Postgres using Docker
-# Allow to skip Docker if a dockerized Postgres database is already running
+# Allow skipping Docker if a dockerized Postgres database is already running
 if [[ -z "${SKIP_DOCKER}" ]]
 then
   docker run \
