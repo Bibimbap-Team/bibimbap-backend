@@ -1,13 +1,14 @@
 #[macro_use]
 extern crate rocket;
 
+use bibimbap_backend::startup::run;
 use rocket::http::Status;
 use rocket::local::blocking::Client;
 use rocket::{Build, Rocket};
 use std::io::Read;
 
 fn spawn_app() -> Rocket<Build> {
-    bibimbap_backend::run()
+    run()
 }
 
 #[test]

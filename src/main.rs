@@ -1,4 +1,4 @@
-use bibimbap_backend::run;
+use bibimbap_backend::startup::run;
 
 #[rocket::main]
 async fn main() {
